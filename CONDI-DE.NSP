@@ -1,0 +1,48 @@
+0001/** New Program CONDI-DE.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005* >Natural Source Header 000000
+0006* :Mode S
+0007* :CP
+0008* <Natural Source Header
+0009DEFINE DATA
+0010LOCAL
+00111 NUMVALUE (N20) INIT <6>
+00121 MESSAGE (A20)  INIT <'VALUE FALLS'>
+0013END-DEFINE                                                             
+0014*                                                                       
+0015               
+0016*                                                                       
+0017DECIDE ON EVERY VALUE OF NUMVALUE                                        
+0018  VALUE  4                                                           
+0019    WRITE NUMVALUE MESSAGE ' 0-6' 
+0020*                                   
+0021  VALUE  5                                                        
+0022    WRITE MESSAGE NUMVALUE 
+0023*    
+0024VALUE  6                                                        
+0025    WRITE  NUMVALUE MESSAGE ' 0-6'
+0026     VALUE  7
+0027     WRITE' VALUE' NUMVALUE MESSAGE' IS FALLING IN RANGE 7,8,9 &10'
+0028* 
+0029     VALUE  8
+0030     WRITE' VALUE' NUMVALUE MESSAGE' IS FALLING IN RANGE 7,8,9 &10'
+0031* 
+0032     VALUE  9
+0033     WRITE' VALUE' NUMVALUE MESSAGE' IS FALLING IN RANGE 7,8,9 &10'
+0034          VALUE  10
+0035     WRITE' VALUE' NUMVALUE MESSAGE' IS FALLING IN RANGE 7,8,9 &10'
+0036          VALUE  11
+0037     WRITE' VALUE' NUMVALUE MESSAGE' IS FALLING IN RANGE 7,8,9 &10'
+0038     VALUE 13   
+0039     WRITE 'VALUE' NUMVALUE 'VALUE IS 13' 'OR' MESSAGE  'IN THE RANGE 15'                                    
+0040*                                    
+0041  ALL VALUE                                                             
+0042    WRITE 'VALUE OF IS FOUND 0-20'                                    
+0043  NONE VALUE
+0044*                                                            
+0045    WRITE 'INVALID'
+0046    END-DECIDE
+0047*          
+0048END
