@@ -1,0 +1,101 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #ADDRESS-LINE(*) #PROGRAM EMPLOYEES.AREA-CODE EMPLOYEES.CITY
+0004*     EMPLOYEES.COUNTRY EMPLOYEES.NAME EMPLOYEES.PERSONEL-ID EMPLOYEES.PHONE EMPLOYEES.POST-CODE
+0005DEFINE DATA PARAMETER
+00061 #ADDRESS-LINE (A020/00001:00002)
+00071 #PROGRAM (A008)
+00081 EMPLOYEES.AREA-CODE (A006)
+00091 EMPLOYEES.CITY (A020)
+00101 EMPLOYEES.COUNTRY (A003)
+00111 EMPLOYEES.NAME (A020)
+00121 EMPLOYEES.PERSONEL-ID (A008)
+00131 EMPLOYEES.PHONE (A015)
+00141 EMPLOYEES.POST-CODE (A010)
+0015END-DEFINE
+0016FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0017* MAP2: MAP PROFILES *****************************        200***********
+0018* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0019* 024079        N0NNUCN             X        01 SYSPROF NR             *
+0020************************************************************************
+0021INPUT          (     IP=OFF                                           /*
+0022                                                                       )
+0023 001T 'PROGRAM :'
+0024 012T #PROGRAM /*.01U008 A008 .
+0025      (AD=ODT )
+0026 032T *DATG /*.01S015 A015 .
+0027      (AD=ODT )
+0028/
+0029 001T 'MAP:'
+0030 009T *PROGRAM /*.01S008 A008 .
+0031      (AD=ODT )
+0032 035T *TIME /*.01S007 A010 .
+0033      (AD=ODT )
+0034/
+0035 004T 'DASHBOARD : ADDRESS FOR EMPLOYEES'
+0036/
+0037/
+0038 002T 'Person ID:'
+0039 021T EMPLOYEES.PERSONEL-ID /*.01D008 A008 .
+0040      (AD=ODRT )
+0041/
+0042 002T 'Surname:'
+0043 021T EMPLOYEES.NAME /*.01D020 A020 .
+0044      (AD=ODLT )
+0045/
+0046 002T 'Address Line 1:'
+0047 021T #ADDRESS-LINE (1) /*.01U020 A020 .
+0048      (AD=ODT )
+0049   /**A1000020000100001000010000100001100002001001000001000HV
+0050/
+0051 002T 'Address Line 2:'
+0052 021T #ADDRESS-LINE (2) /*.01U020 A020 .
+0053      (AD=ODT )
+0054/
+0055 002T 'Postal Code:'
+0056 021T EMPLOYEES.AREA-CODE /*.01D006 A006 .
+0057      (AD=ODLT )
+0058/
+0059 002T 'City:'
+0060 021T EMPLOYEES.CITY /*.01D020 A020 .
+0061      (AD=ODLT )
+0062/
+0063 002T 'Country:'
+0064 021T EMPLOYEES.COUNTRY /*.01D003 A003 .
+0065      (AD=ODLT )
+0066/
+0067/
+0068 002T 'Area Code:'
+0069 021T EMPLOYEES.POST-CODE /*.01D010 A010 .
+0070      (AD=ODLT )
+0071/
+0072 002T 'Telephone:'
+0073 021T EMPLOYEES.PHONE /*.01D015 A015 .
+0074      (AD=ODLT )
+0075/
+0076/
+0077/
+0078/
+0079/
+0080/
+0081/
+0082/
+0083/
+0084/
+0085* MAP2: VALIDATION *****************************************************
+0086RULEVAR D01EMPLOYEES.PERSONEL-ID                                            
+0087* CDIR EMPLOYEES                        PERSONEL-ID                     ;
+0088RULEVAR D01EMPLOYEES.NAME                                                   
+0089* CDIR EMPLOYEES                        NAME                            ;
+0090RULEVAR D01EMPLOYEES.AREA-CODE                                              
+0091* CDIR EMPLOYEES                        AREA-CODE                       ;
+0092RULEVAR D01EMPLOYEES.CITY                                                   
+0093* CDIR EMPLOYEES                        CITY                            ;
+0094RULEVAR D01EMPLOYEES.COUNTRY                                                
+0095* CDIR EMPLOYEES                        COUNTRY                         ;
+0096RULEVAR D01EMPLOYEES.POST-CODE                                              
+0097* CDIR EMPLOYEES                        POST-CODE                       ;
+0098RULEVAR D01EMPLOYEES.PHONE                                                  
+0099* CDIR EMPLOYEES                        PHONE                           ;
+0100* MAP2: END OF MAP *****************************************************
+0101END

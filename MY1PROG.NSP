@@ -1,0 +1,20 @@
+0010* MY FIRST PROGRAM 
+0020DEFINE DATA
+0030LOCAL
+00401 #NAME (A13) INIT <'Innocent '>
+00501 #SURNAME (A6) INIT <'Zulu'>
+00601 #age (N2)
+00701 #Occupation (A30) INIT <'Tsansformation, Intern'>
+0080*
+0090END-DEFINE
+0100*
+0110#age :=26
+0120write 'Name :'  #NAME 
+0130write 'Surname :' #SURNAME 
+0140write 'age :' #age
+0150write 'Occupation :' #Occupation
+0160end
+0170
+0180
+0190 
+0200

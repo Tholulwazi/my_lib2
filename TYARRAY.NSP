@@ -1,0 +1,22 @@
+0001/** New Program ARRAY2PR.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005DEFINE DATA
+0006LOCAL
+00071 #ARR-1 (A1/1:15) INIT <'A','C','K','N','O','W','L','E','D','G','M','E','N','T'>
+00081 #ARR-2 (A1/1:15)
+00091 #INDEX (N5)
+0010END-DEFINE
+0011SET CONTROL 'MT'
+0012/** Lets try to print all the indexes inside the array IN REVERSE
+0013FOR #INDEX 15 TO 1 STEP -1
+0014
+0015PRINT #INDEX := #ARR-2(#INDEX)
+0016
+0017END-FOR
+0018*  WRITE 'ARRAY :' / #ARR-2(*)
+0019
+0020
+0021
+0022END

@@ -1,0 +1,65 @@
+0001/** New Program WRMEAR2.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL
+0006/**program to add new employee in the payroll sysem
+00071 #NEW-EMPLOYEE
+0008  2 #EMPLOYEE-NAME (A20)
+0009  2 #EMPLOYEE-LAST-NAME (A20)
+0010  2 #EMPLOYEE-ID (N8)
+0011  2 #EMPLOYEE-LANG (A20/1:5)
+0012  2 #EMPLOYEE-ADDR (A20/1:2)
+0013  2 #EMPLOYEE-SALARY(N10/1:1) /**per year
+0014  2 #TOTAL-SAL (N9.4) INIT <250000>
+0015END-DEFINE
+0016/**Add new employee
+0017SET CONTROL 'mt'
+0018FORMAT LS=80
+0019  PS=20
+0020REPEAT
+0021  INPUT 'WElcome HR  ' *USER (AD=IO CD=RE ) 'To adding new Employee'/
+0022    'Enter Employee Name   ' #EMPLOYEE-NAME (AD=M) /
+0023    'Enter Employee LName  ' #EMPLOYEE-LAST-NAME /
+0024    'Enter Employee ID     ' #EMPLOYEE-ID /
+0025    'Enter Employee Lang(s)' #EMPLOYEE-LANG(*) /
+0026    'Enter Employee Address' #EMPLOYEE-ADDR(*)/
+0027    'Enter Employee Sala(s)' #EMPLOYEE-SALARY(*)(AD=MP)//
+0028    'Total Salary :'#TOTAL-SAL (AD=IOP)
+0029
+0030  /**compute #EMPLOYEE-SALARY(1) thru #EMPLOYEE-SALARY(5)
+0031  /** if fieled are left blank
+0032  IF    #EMPLOYEE-NAME = ' '
+0033    REINPUT 'Name cannot be left blank'
+0034      MARK *#EMPLOYEE-NAME
+0035  END-IF
+0036/**
+0037  IF    #EMPLOYEE-LAST-NAME= ' '
+0038    REINPUT 'Last Name cannot be left blank'
+0039      MARK *#EMPLOYEE-LAST-NAME
+0040  END-IF
+0041/**
+0042  IF    #EMPLOYEE-ID= 00000000
+0043    REINPUT 'ID cannot be left blank'
+0044      MARK *#EMPLOYEE-ID
+0045  END-IF
+0046/**
+0047  IF   #EMPLOYEE-SALARY(*)= 00000000
+0048    REINPUT 'Salary cannot be left blank'
+0049      MARK *#EMPLOYEE-SALARY(*)
+0050  END-IF
+0051  /**
+0052  IF   #EMPLOYEE-ADDR(*)= ' '
+0053    REINPUT 'Address cannot be left blank'
+0054      MARK *#EMPLOYEE-ADDR(*)
+0055  END-IF
+0056  IF #TOTAL-SAL > 250000
+0057    REINPUT FULL 'Total exceed limit per employee'
+0058    IF #TOTAL-SAL < 0
+0059      REINPUT FULL 'Total can not be 0.0'
+0060    ELSE
+0061      IGNORE
+0062    END-IF
+0063  END-IF
+0064END-REPEAT
+0065END

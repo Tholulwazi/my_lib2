@@ -1,0 +1,13 @@
+0001/** New Program WK18STA1.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL
+00061 #VARIABLE (A10)
+0007END-DEFINE                                                                    
+0008FORMAT LS=70                                                
+0009*                                  
+0010INPUT 'ENTER YOUR NAME' #VARIABLE
+0011STACK TOP DATA #VARIABLE /**puts it to the natural stack
+0012STACK TOP COMMAND 'WK18STA2' /**the program that is going to use it
+0013END

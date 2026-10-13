@@ -1,0 +1,45 @@
+0001/** New Program TESTEXM.
+0002/**
+0003/** :author tzu
+0004DEFINE DATA LOCAL                                                       
+00051 #TEXT1   (A6) INIT <'AAABBB'>                                         
+00061 #TEXT2   (A7) INIT <'AAA BBB'>                                        
+00071 #TEXT3   (A7) INIT <'AAA-BBB'>                                        
+00081 #TEXT4   (A7) INIT <'A.B/C,D'>                                        
+00091 #FIELD1A (A6)                                                         
+00101 #FIELD1B (A6)                                                         
+00111 #FIELD2A (A3)                                                         
+00121 #FIELD2B (A3)                                                         
+00131 #FIELD3A (A3)                                                         
+00141 #FIELD3B (A3)                                                         
+00151 #FIELD4A (A3)                                                         
+00161 #FIELD4B (A3)                                                         
+00171 #FIELD4C (A3)                                                         
+00181 #FIELD4D (A3)                                                         
+00191 #NBT     (N1)                                                         
+00201 #DEL     (A5)                                                         
+0021END-DEFINE                                                        
+0022*                                                                 
+0023WRITE NOTITLE 'EXAMPLE A (SOURCE HAS NO BLANKS)'                  
+0024SEPARATE #TEXT1 INTO #FIELD1A #FIELD1B GIVING NUMBER #NBT   
+0025WRITE     / '=' #TEXT1 5X '=' #FIELD1A 4X '=' #FIELD1B 4X '=' #NBT
+0026*                                                                 
+0027WRITE NOTITLE /// 'EXAMPLE B (SOURCE HAS EMBEDDED BLANK)'         
+0028SEPARATE #TEXT2 INTO #FIELD2A #FIELD2B GIVING NUMBER #NBT     
+0029WRITE     / '=' #TEXT2 4X '=' #FIELD2A 7X '=' #FIELD2B 7X '=' #NBT
+0030*                              
+0031
+0032                                   
+0033WRITE NOTITLE /// 'EXAMPLE C (USING DELIMITER ''-'')'             
+0034SEPARATE #TEXT3 INTO #FIELD3A #FIELD3B WITH DELIMITER '-'     
+0035WRITE     /    '=' #TEXT3 4X '=' #FIELD3A 7X '=' #FIELD3B         
+0036*                                                                 
+0037MOVE ',/' TO #DEL                                                 
+0038WRITE NOTITLE /// 'EXAMPLE D USING DELIMITER' '=' #DEL            
+0039*                                                                 
+0040SEPARATE #TEXT4 INTO #FIELD4A #FIELD4B                            
+0041         #FIELD4C #FIELD4D WITH DELIMITER #DEL               
+0042WRITE     /    '=' #TEXT4 4X '=' #FIELD4A 7X '=' #FIELD4B
+0043          /              19X '=' #FIELD4C 7X '=' #FIELD4D
+0044*                                                        
+0045END

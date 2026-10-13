@@ -1,0 +1,112 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #NAME #PROGRAM #TOTAL-VE #VEHICLE-COUNT VIHICLES-DATA.CHASIS-NUM
+0004*     VIHICLES-DATA.COLOUR VIHICLES-DATA.DATE-ACQ VIHICLES-DATA.MAKE VIHICLES-DATA.MODEL
+0005*     VIHICLES-DATA.PERSONEL-ID VIHICLES-DATA.REG-NUM VIHICLES-DATA.YEAR
+0006DEFINE DATA PARAMETER
+00071 #NAME (A020)
+00081 #PROGRAM (A008)
+00091 #TOTAL-VE (N03.0)
+00101 #VEHICLE-COUNT (N03.0)
+00111 VIHICLES-DATA.CHASIS-NUM (B004)
+00121 VIHICLES-DATA.COLOUR (A010)
+00131 VIHICLES-DATA.DATE-ACQ (N08.0)
+00141 VIHICLES-DATA.MAKE (A020)
+00151 VIHICLES-DATA.MODEL (A020)
+00161 VIHICLES-DATA.PERSONEL-ID (A008)
+00171 VIHICLES-DATA.REG-NUM (A015)
+00181 VIHICLES-DATA.YEAR (N04.0)
+0019END-DEFINE
+0020FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0021* MAP2: MAP PROFILES *****************************        200***********
+0022* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0023* 024079        N0NNUCN             X        01 SYSPROF NR             *
+0024************************************************************************
+0025INPUT          (     IP=OFF                                           /*
+0026                                                                       )
+0027 001T 'PROGRAM:'
+0028 011T #PROGRAM /*.01U008 A008 .
+0029      (AD=ODT )
+0030 038T *DATG /*.01S010 A015 .
+0031      (AD=ODT AL=010 )
+0032/
+0033 001T 'MAP NAME:'
+0034 011T *PROGRAM /*.01S008 A008 .
+0035      (AD=ODT )
+0036 039T *TIME /*.01S008 A010 .
+0037      (AD=ODT AL=008 )
+0038/
+0039/
+0040 012T 'EMPLOYEES VEHICLE DASHBOARD'
+0041/
+0042 001T 'Personal ID:'
+0043 023T VIHICLES-DATA.PERSONEL-ID /*.01D008 A008 .
+0044      (AD=ODLT )
+0045/
+0046 001T 'Surname:'
+0047 023T #NAME /*.01D020 A020 .
+0048      (AD=ODLT )
+0049/
+0050/
+0051 001T 'Registration Number:'
+0052 023T VIHICLES-DATA.REG-NUM /*.01D015 A015 .
+0053      (AD=ODLT )
+0054/
+0055 001T 'Make:'
+0056 023T VIHICLES-DATA.MAKE /*.01D020 A020 .
+0057      (AD=ODLT )
+0058/
+0059 001T 'Model:'
+0060 023T VIHICLES-DATA.MODEL /*.01D020 A020 .
+0061      (AD=ODLT )
+0062/
+0063 001T 'colour:'
+0064 023T VIHICLES-DATA.COLOUR /*.01D010 A010 .
+0065      (AD=ODLT )
+0066/
+0067 001T 'Year:'
+0068 023T VIHICLES-DATA.YEAR /*.01D004 N04.0.
+0069      (AD=ODLT )
+0070/
+0071 001T 'Chasis Number:'
+0072 023T VIHICLES-DATA.CHASIS-NUM /*.01D008 B004 .
+0073      (AD=ODLT )
+0074/
+0075 001T 'Date Acquired:'
+0076 023T VIHICLES-DATA.DATE-ACQ /*.01D008 N08.0.
+0077      (AD=ODLT )
+0078/
+0079 001T 'Vehicle Count:'
+0080 023T #VEHICLE-COUNT /*.01U003 N03.0.
+0081      (AD=ODLT )
+0082 027T 'Of'
+0083 030T #TOTAL-VE /*.01U003 N03.0.
+0084      (AD=ODLT )
+0085/
+0086/
+0087/
+0088/
+0089/
+0090/
+0091/
+0092/
+0093/
+0094* MAP2: VALIDATION *****************************************************
+0095RULEVAR D01VIHICLES-DATA.PERSONEL-ID                                        
+0096* CDIR VIHICLES-DATA                    PERSONEL-ID                     ;
+0097RULEVAR D01VIHICLES-DATA.REG-NUM                                            
+0098* CDIR VIHICLES-DATA                    REG-NUM                         ;
+0099RULEVAR D01VIHICLES-DATA.MAKE                                               
+0100* CDIR VIHICLES-DATA                    MAKE                            ;
+0101RULEVAR D01VIHICLES-DATA.MODEL                                              
+0102* CDIR VIHICLES-DATA                    MODEL                           ;
+0103RULEVAR D01VIHICLES-DATA.COLOUR                                             
+0104* CDIR VIHICLES-DATA                    COLOUR                          ;
+0105RULEVAR D01VIHICLES-DATA.YEAR                                               
+0106* CDIR VIHICLES-DATA                    YEAR                            ;
+0107RULEVAR D01VIHICLES-DATA.CHASIS-NUM                                         
+0108* CDIR VIHICLES-DATA                    CHASIS-NUM                      ;
+0109RULEVAR D01VIHICLES-DATA.DATE-ACQ                                           
+0110* CDIR VIHICLES-DATA                    DATE-ACQ                        ;
+0111* MAP2: END OF MAP *****************************************************
+0112END

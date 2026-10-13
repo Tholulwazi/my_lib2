@@ -1,0 +1,51 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #PERSONNEL-ID #PROGRAM EMPLOYEES-DATA.FIRST-NAME EMPLOYEES-DATA.NAME
+0004DEFINE DATA PARAMETER
+00051 #PERSONNEL-ID (N08.0)
+00061 #PROGRAM (A008)
+00071 EMPLOYEES-DATA.FIRST-NAME (A020)
+00081 EMPLOYEES-DATA.NAME (A020)
+0009END-DEFINE
+0010FORMAT PS=012 LS=051 ZP=OFF SG=OFF KD=OFF IP=OFF
+0011* MAP2: MAP PROFILES *****************************        200***********
+0012* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0013* 012050        N0NNUCN             X ^      01 SYSPROF NR             *
+0014************************************************************************
+0015INPUT          (     IP=OFF                                           /*
+0016                                                                       )
+0017 002T 'PROGRAM:'
+0018 011T #PROGRAM /*.01U008 A008 .
+0019      (AD=ODT )
+0020 032T *DATG /*.01S014 A015 .
+0021      (AD=ODT AL=014 )
+0022/
+0023 033T *TIME /*.01S010 A010 .
+0024      (AD=ODT )
+0025/
+0026/
+0027 006T 'Employee was added Successful !    '
+0028/
+0029/
+0030 003T 'Name:'
+0031 025T EMPLOYEES-DATA.FIRST-NAME /*.01D020 A020 .
+0032      (AD=OULT )
+0033/
+0034 003T 'Surname:'
+0035 025T EMPLOYEES-DATA.NAME /*.01D020 A020 .
+0036      (AD=OULT )
+0037/
+0038 003T 'Generated Personel-ID:'
+0039 025T #PERSONNEL-ID /*.01D008 N08.0.
+0040      (AD=OULT )
+0041/
+0042/
+0043/
+0044/
+0045* MAP2: VALIDATION *****************************************************
+0046RULEVAR D01EMPLOYEES-DATA.FIRST-NAME                                        
+0047* CDIR EMPLOYEES                        FIRST-NAME                      ;
+0048RULEVAR D01EMPLOYEES-DATA.NAME                                              
+0049* CDIR EMPLOYEES                        NAME                            ;
+0050* MAP2: END OF MAP *****************************************************
+0051END

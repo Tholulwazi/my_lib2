@@ -1,0 +1,124 @@
+0001/** New Program WRK50SRT.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL
+00061 #NAMES (A25)
+00071 #PREV-NAME-NAME1 (A25)
+00081 REDEFINE #PREV-NAME-NAME1
+0009  2 #PREV-NAME (A1/1:25)
+0010***************************************************************************************
+00111 #TOT-REC (N5)
+00121 #WORD-LENGTH3  (N5)
+0013***************************************************************************************
+0014/**MAIN INDEX FOR WORD COUNT
+00151 #INDEX-3 (N5)
+0016***************************************************************************************
+0017/**TOTAL PER WORD
+00181 #TOT-3-WORD (N5)
+00191 #TOT-4-WORD (N5)
+00201 #TOT-5-WORD (N5)
+00211 #TOT-6-WORD (N5)
+00221 #TOT-7-WORD (N5)
+00231 #TOT-8-WORD (N5)
+00241 #TOT-9-WORD (N5)
+00251 #TOT-10-WORD (N5)
+00261 #TOT-11-WORD (N5)
+00271 #TOT-12-WORD (N5)
+0028END-DEFINE
+0029*******************************************************************************************************
+0030DEFINE WORK FILE 1
+0031  'C:\Trainings\no duplicates.txt'
+0032DEFINE WORK FILE 2
+0033  'C:\Trainings\ Three letter word2.txt'
+0034DEFINE WORK FILE 3
+0035  'C:\Trainings\Four letter word2.txt'
+0036DEFINE WORK FILE 4
+0037  'C:\Trainings\Five letter word2.txt'
+0038DEFINE WORK FILE 5
+0039  'C:\Trainings\Six letter word2.txt'
+0040DEFINE WORK FILE 6
+0041  'C:\Trainings\Seven letter word.txt'
+0042DEFINE WORK FILE 7
+0043  'C:\Trainings\Eight letter word2.txt'
+0044DEFINE WORK FILE 8
+0045  'C:\Trainings\Nine letter word2.txt'
+0046DEFINE WORK FILE 9
+0047  'C:\Trainings\Ten letter word2.txt'
+0048DEFINE WORK FILE 10
+0049  'C:\Trainings\Eleven letter word2.txt'
+0050DEFINE WORK FILE 11
+0051  'C:\Trainings\Twelve letter word2.txt'
+0052*****************************************************************************************************
+0053READ WORK FILE 1 #NAMES
+0054  /**Testing
+0055  ADD 1 TO #TOT-REC
+0056/**SUBSTRING
+0057  COMPRESS #NAMES INTO #PREV-NAME-NAME1
+0058************************************************************************************
+0059/**  MOVE #NAMES TO #PREV-NAME-NAME1
+0060/****************************************************************************************************
+0061/*FOR LOOP FOR COUNTING THE LENGHT
+0062  FOR #INDEX-3 1 TO 25 
+0063  /**IF #PREV-NAME(#INDEX-3) = ' '
+0064 /*   IF SUBSTRING (#PREV-NAME-NAME1,#INDEX-3,1) = ' '
+0065      #WORD-LENGTH3 :=#INDEX-3 - 1
+0066      ESCAPE BOTTOM
+0067   /** END-IF
+0068  END-FOR
+0069************************************************************************************
+0070  IF #WORD-LENGTH3 = 1
+0071      OR #WORD-LENGTH3 = 2
+0072      OR #WORD-LENGTH3 GT 12
+0073    ESCAPE TOP
+0074  END-IF
+0075************************************************************************************
+0076  DECIDE ON EVERY VALUE OF #WORD-LENGTH3
+0077    VALUE 3 
+0078      ADD 1 TO #TOT-3-WORD
+0079      WRITE WORK FILE 2 #NAMES
+0080    VALUE 4 
+0081      ADD 1 TO #TOT-4-WORD
+0082      WRITE WORK FILE 3 #NAMES
+0083    VALUE 5 
+0084      ADD 1 TO #TOT-5-WORD
+0085      WRITE WORK FILE 4 #NAMES
+0086    VALUE 6
+0087      ADD 1 TO #TOT-6-WORD
+0088      WRITE WORK FILE 5 #NAMES
+0089    VALUE 7 
+0090      ADD 1 TO #TOT-7-WORD
+0091      WRITE WORK FILE 6 #NAMES
+0092    VALUE 8 
+0093      ADD 1 TO #TOT-8-WORD
+0094      WRITE WORK FILE 7 #NAMES
+0095    VALUE 9 
+0096      ADD 1 TO #TOT-9-WORD
+0097      WRITE WORK FILE 8 #NAMES
+0098    VALUE 10 
+0099      ADD 1 TO #TOT-10-WORD
+0100      WRITE WORK FILE 9 #NAMES
+0101    VALUE 11 
+0102      ADD 1 TO #TOT-11-WORD
+0103      WRITE WORK FILE 10 #NAMES
+0104    VALUE 12 
+0105      ADD 1 TO #TOT-12-WORD
+0106      WRITE WORK FILE 11  #NAMES
+0107    NONE IGNORE
+0108  END-DECIDE
+0109
+0110/**
+0111END-WORK
+0112WRITE  '*' 'Total number of RECORD  IN FILE: ' #TOT-REC
+0113WRITE  '*' 'Total number of 3 WORD RECORD  IN FILE: ' #TOT-3-WORD
+0114WRITE  '*' 'Total number of 4 WORD RECORD  IN FILE: ' #TOT-4-WORD
+0115WRITE  '*' 'Total number of 5 WORD RECORD  IN FILE: ' #TOT-5-WORD
+0116WRITE  '*' 'Total number of 6 WORD RECORD  IN FILE: ' #TOT-6-WORD
+0117WRITE  '*' 'Total number of 7 WORD RECORD  IN FILE: ' #TOT-7-WORD
+0118WRITE  '*' 'Total number of 8 WORD RECORD  IN FILE: ' #TOT-8-WORD
+0119WRITE  '*' 'Total number of 9 WORD RECORD  IN FILE: ' #TOT-9-WORD
+0120WRITE  '*' 'Total number of 10 WORD RECORD  IN FILE: ' #TOT-10-WORD
+0121WRITE  '*' 'Total number of 11 WORD RECORD  IN FILE: ' #TOT-11-WORD
+0122WRITE  '*' 'Total number of 12 WORD RECORD  IN FILE: ' #TOT-12-WORD
+0123END
+0124

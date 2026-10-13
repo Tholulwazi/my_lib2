@@ -1,0 +1,25 @@
+0001/** New Program MY2PROGR.
+0002/**
+0003/** :author tzu
+0004/* 
+0005DEFINE DATA
+0006LOCAL 
+00071 #EMPLOYEES
+00082 #NAME (A30)
+00092 #age (N2)
+00102 #SALARY (N7.3)
+00112 #NEW-ADD (A30)
+00122 #OLD-ADD (A30)
+0013END-DEFINE
+0014#SALARY := 200000
+0015#NAME := 'Innocent'
+0016#age :=26
+0017#NEW-ADD := 'CENTURION'
+0018#OLD-ADD := 'RIVERSIDE VIEW'
+0019MOVE #OLD-ADD TO #NEW-ADD
+0020write 'Hello' #Name
+0021write 'Your Last salary was : ' #SALARY
+0022write 'Your Age' #age
+0023write 'Last Address ' #OLD-ADD
+0024write 'New Adress' #NEW-ADD
+0025end 

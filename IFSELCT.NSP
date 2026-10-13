@@ -1,0 +1,27 @@
+0001/** New Program IFSELCT.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL                                                       
+00061 #A (A1)                                                               
+00071 #B (A1)                                                               
+0008END-DEFINE                                                              
+0009*                                          
+0010INPUT 'SELECT ONE FUNCTION:' //            
+0011   9X 'FUNCTION A:' #A                     
+0012   9X 'FUNCTION B:' #B                     
+0013*                                          
+0014IF SELECTION NOT UNIQUE #A #B              
+0015  REINPUT 'PLEASE ENTER ONE FUNCTION ONLY.'
+0016END-IF 
+0017                                   
+0018*                                          
+0019IF #A NE ' '                               
+0020  WRITE 'FUNCTION A SELECTED.'             
+0021END-IF                                     
+0022IF #B NE ' '                               
+0023  WRITE 'FUNCTION B SELECTED.'             
+0024END-IF                                     
+0025*                                          
+0026END
+0027

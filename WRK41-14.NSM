@@ -1,0 +1,106 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #G-DESCRIPTION #NAME #PERSONNEL-ID #PROGRAM #S-DESCRIPTION
+0004*     EMPLOYEES.FIRST-NAME EMPLOYEES.GENDER EMPLOYEES.MAR-STAT EMPLOYEES.MIDDLE-I
+0005*     EMPLOYEES-DATA.LANG(*)
+0006DEFINE DATA PARAMETER
+00071 #G-DESCRIPTION (A010)
+00081 #NAME (A020)
+00091 #PERSONNEL-ID (A008)
+00101 #PROGRAM (A008)
+00111 #S-DESCRIPTION (A010)
+00121 EMPLOYEES.FIRST-NAME (A020)
+00131 EMPLOYEES.GENDER (A001)
+00141 EMPLOYEES.MAR-STAT (A020)
+00151 EMPLOYEES.MIDDLE-I (A020)
+00161 EMPLOYEES-DATA.LANG (A003/00001:00005)
+0017END-DEFINE
+0018FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0019* MAP2: MAP PROFILES *****************************        200***********
+0020* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0021* 024079        N0NNUCN             X        01 SYSPROF NR             *
+0022************************************************************************
+0023INPUT          (     IP=OFF                                           /*
+0024                                                                       )
+0025 001T 'PROGRAM :'
+0026 011T #PROGRAM /*.01U008 A008 .
+0027      (AD=ODT )
+0028 021T 'HR Information System'
+0029 052T *DATG /*.01S015 A015 .
+0030      (AD=ODT )
+0031/
+0032 001T 'MAP:'
+0033 009T *PROGRAM /*.01S008 A008 .
+0034      (AD=ODT )
+0035 060T *TIME /*.01S007 A010 .
+0036      (AD=ODT )
+0037/
+0038 021T 'Employee Personal Detail'
+0039/
+0040/
+0041 002T 'Person ID:'
+0042 019T #PERSONNEL-ID /*.01D008 A008 .
+0043      (AD=ODLT )
+0044/
+0045 002T 'Surname:'
+0046 019T #NAME /*.01D020 A020 .
+0047      (AD=ODLT )
+0048/
+0049/
+0050 002T 'First Name:'
+0051 019T EMPLOYEES.FIRST-NAME /*.01V020 A020 .
+0052      (AD=ODLT )
+0053/
+0054 002T 'Middle Name:'
+0055 019T EMPLOYEES.MIDDLE-I /*.01V020 A020 .
+0056      (AD=ODLT )
+0057/
+0058/
+0059 002T 'Gender:'
+0060 019T #G-DESCRIPTION /*.01U010 A010 .
+0061      (AD=ODLT )
+0062 030T EMPLOYEES.GENDER /*.01V001 A001 .
+0063      (AD=ODLT )
+0064/
+0065 002T 'Marital Status:'
+0066 019T #S-DESCRIPTION /*.01U010 A010 .
+0067      (AD=ODT )
+0068 030T EMPLOYEES.MAR-STAT /*.01V020 A020 .
+0069      (AD=ODLT )
+0070/
+0071/
+0072 002T 'Language :'
+0073 019T EMPLOYEES-DATA.LANG (1) /*.01D003 A003 .
+0074      (AD=ODLT )
+0075   /**A1000050000100001000010000100001010001005001000002000HV
+0076 024T EMPLOYEES-DATA.LANG (2) /*.01D003 A003 .
+0077      (AD=ODLT )
+0078 029T EMPLOYEES-DATA.LANG (3) /*.01D003 A003 .
+0079      (AD=ODLT )
+0080 034T EMPLOYEES-DATA.LANG (4) /*.01D003 A003 .
+0081      (AD=ODLT )
+0082 039T EMPLOYEES-DATA.LANG (5) /*.01D003 A003 .
+0083      (AD=ODLT )
+0084/
+0085/
+0086/
+0087/
+0088/
+0089/
+0090/
+0091/
+0092/
+0093/
+0094* MAP2: VALIDATION *****************************************************
+0095RULEVAR D01EMPLOYEES.FIRST-NAME                                             
+0096* CDIR EMPLOYEES                        FIRST-NAME                      ;
+0097RULEVAR D01EMPLOYEES.MIDDLE-I                                               
+0098* CDIR EMPLOYEES                        MIDDLE-I                        ;
+0099RULEVAR D01EMPLOYEES.GENDER                                                 
+0100* CDIR EMPLOYEES                        GENDER                          ;
+0101RULEVAR D01EMPLOYEES.MAR-STAT                                               
+0102* CDIR EMPLOYEES                        MAR-STAT                        ;
+0103RULEVAR D01EMPLOYEES-DATA.LANG                                              
+0104* CDIR EMPLOYEES-DATA                   LANG                            ;
+0105* MAP2: END OF MAP *****************************************************
+0106END

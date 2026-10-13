@@ -1,0 +1,54 @@
+0001DB: 012 FILE: 011  - EMPLOYEES                        DEFAULT SEQUENCE: 
+0002TYPE: ADABAS 
+0003 
+0004T L DB Name                              F Leng  S D Remark 
+0005- - -- --------------------------------  - ----  - - -------------------- 
+0006  1 AA PERSONEL-ID                       A    8    D CNNNNNNN 
+0007G 1 AB FULL-NAME                                     NAME INFORMATION 
+0008  2 AC FIRST-NAME                        A   20  N   FIRST / CHRISTIAN NAME 
+0009  2 AD MIDDLE-I                          A   20  N D MIDDLE INITIAL 
+0010  2 AE NAME                              A   20  N D SURNAME / FAMILY NAME 
+0011  1 AF MAR-STAT                          A   20  F D M=MARRIED 
+0012  1 AG GENDER                            A    1  F 
+0013  1 AH BIRTH                             A    6  N D BIRTH DATE (YYYY-MM-DD) 
+0014  1 AH NSBIRTH                           D    6  N D INDICATOR OF BIRTH 
+0015G 1 A1 FULL-ADDRESS 
+0016M 2 AI ADDRESS-LINE                      A   20  N   ALL ADDRESS LINES 
+0017  2 AJ CITY                              A   20  N D MAIN TOWN/CITY 
+0018  2 AK POST-CODE                         A   10  N   POSTAL ADDRESS CODE 
+0019  2 AL COUNTRY                           A    3  N   COUNTRY CODE 
+0020G 1 A2 TELEPHONE 
+0021  2 AN AREA-CODE                         A    6  N   PHONE NUMBER PREFIX 
+0022  2 AM PHONE                             A   15  N   PHONE (SELECT) NUMBER 
+0023  1 AO DEPT                              A    6    D DDDDSS 
+0024  1 AP JOB-TITLE                         A   25  N D 
+0025P 1 AQ INCOME                                        ANNUAL INCOMES 
+0026  2 AR CURR-CODE                         A    3  N   CURRENCY OF INCOME 
+0027  2 AS SALARY                            P  9.0  N   ANNUAL SALARY 
+0028M 2 AT BONUS                             P  9.0  N   BONUS PER YEAR 
+0029G 1 A3 LEAVE-DATA                                    LEAVE/VACATION INFO 
+0030  2 AU LEAVE-DUE                         N  2.0      VACATION DAYS/YEAR 
+0031  2 AV LEAVE-TAKEN                       N  2.0  N   VACATION DAYS TAKEN 
+0032P 1 AW LEAVE-BOOKED                                  VACATION PLANNED 
+0033  2 AX LEAVE-START                       N  8.0  N   FIRST VECATION DAY 
+0034  2 AY LEAVE-END                         N  8.0  N   LAST VACATION DAY 
+0035M 1 AZ LANG                              A    3  N D LANGUAGES SPOKEN 
+0036  1 PH PHONETIC-NAME                     A   20    P PHONETIC LAST NAME 
+0037*      -------- SOURCE FIELD(S) ------- 
+0038*      AE-1 
+0039  1 H1 LEAVE-LEFT                        B    4  N S VECATION DAYS LEFT 
+0040*      -------- SOURCE FIELD(S) ------- 
+0041*      AU-1(1-2) 
+0042*      AV-1(1-2) 
+0043  1 S1 DEPARTMENT                        A    4    U MAINDEPT. CODE DDD 
+0044*      -------- SOURCE FIELD(S) ------- 
+0045*      AO-1(1-4) 
+0046  1 S2 DEPT-PERSON                       A   26    S DEPT + LAST NAME 
+0047*      -------- SOURCE FIELD(S) ------- 
+0048*      AO-1(1-6) 
+0049*      AE-1(1-20) 
+0050P 1 S3 CURRENCY-SALARY                   A   12  N S CURR.CODE + SALARY 
+0051*      -------- SOURCE FIELD(S) ------- 
+0052*      AR-1(1-3) 
+0053*      AS-1(1-9) 
+0054******DDM OUTPUT TERMINATED****** 

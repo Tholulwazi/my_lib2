@@ -1,0 +1,75 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #EXIT #NUMBER #TOTAL-CARS EMPLOYEES-DATA.CITY EMPLOYEES-DATA.NAME
+0004*     EMPLOYEES-DATA.PERSONEL-ID
+0005DEFINE DATA PARAMETER
+00061 #EXIT (A001)
+00071 #NUMBER (N03.0)
+00081 #TOTAL-CARS (N05.0)
+00091 EMPLOYEES-DATA.CITY (A020)
+00101 EMPLOYEES-DATA.NAME (A020)
+00111 EMPLOYEES-DATA.PERSONEL-ID (A008)
+0012END-DEFINE
+0013FORMAT PS=022 LS=080 ZP=OFF SG=OFF KD=ON IP=OFF
+0014* MAP2: MAP PROFILES *****************************        200***********
+0015* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0016* 024079        N0NNUCN             X ^      01 SYSPROF YR             *
+0017************************************************************************
+0018INPUT          (     IP=OFF                                           /*
+0019                                                                       )
+0020 002T *DATN /*.01S010 N08.0.
+0021      (AD=ODT NL=10.0 )
+0022 048T *PROGRAM /*.01S014 A008 .
+0023      (AD=ODT )
+0024/
+0025 002T *TIME /*.01S008 A010 .
+0026      (AD=ODT AL=008 )
+0027 013T 'HR DEPARTMENT SYSTEM'
+0028/
+0029 013T 'Employee Info  '
+0030/
+0031/
+0032/
+0033/
+0034 002T 'Personel -ID '
+0035 018T EMPLOYEES-DATA.PERSONEL-ID /*.01D029 A008 .
+0036      (AD=ODRT AL=029 )
+0037/
+0038/
+0039 002T 'PERSONEL NAME '
+0040 018T EMPLOYEES-DATA.NAME /*.01D020 A020 .
+0041      (AD=ODRT )
+0042/
+0043/
+0044 002T 'PERSONEL CITY'
+0045 018T EMPLOYEES-DATA.CITY /*.01D020 A020 .
+0046      (AD=ODRT )
+0047/
+0048/
+0049 002T 'NUMBER OF CARS/'
+0050 018T #NUMBER /*.01D015 N03.0.
+0051      (AD=ODRT NL=15.0 )
+0052/
+0053/
+0054 002T 'CARS IN TOTAL '
+0055 018T #TOTAL-CARS /*.01D015 N05.0.
+0056      (AD=ODRT NL=15.0 )
+0057/
+0058/
+0059/
+0060 003T 'Y to Exit  '
+0061 019T #EXIT /*.99U007 A001 .
+0062      (AD=MDT AL=007 )
+0063/
+0064/
+0065/
+0066/
+0067* MAP2: VALIDATION *****************************************************
+0068RULEVAR D01EMPLOYEES-DATA.PERSONEL-ID                                       
+0069* CDIR EMPLOYEES                        PERSONEL-ID                     ;
+0070RULEVAR D01EMPLOYEES-DATA.NAME                                              
+0071* CDIR EMPLOYEES                        NAME                            ;
+0072RULEVAR D01EMPLOYEES-DATA.CITY                                              
+0073* CDIR EMPLOYEES                        CITY                            ;
+0074* MAP2: END OF MAP *****************************************************
+0075END

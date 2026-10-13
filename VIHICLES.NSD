@@ -1,0 +1,25 @@
+0001DB: 012 FILE: 012  - VIHICLES                         DEFAULT SEQUENCE: 
+0002TYPE: ADABAS 
+0003 
+0004T L DB Name                              F Leng  S D Remark 
+0005- - -- --------------------------------  - ----  - - -------------------- 
+0006  1 AA REG-NUM                           A   15  N D 
+0007  1 AB CHASIS-NUM                        B    4  F 
+0008  1 AC PERSONEL-ID                       A    8  N D NC 
+0009  1 AC N@AC-1                            I    2    D INDICATOR OF AC-1 
+0010G 1 CD CAR-DETAILS 
+0011  2 AD MAKE                              A   20  N D 
+0012  2 AE MODEL                             A   20  N 
+0013  2 AF COLOUR                            A   10  N D 
+0014  1 AG YEAR                              N  4.0  N 
+0015  1 AH CLASS                             A    1  F D 
+0016  1 AI LEASE-PUR                         A    1  F 
+0017  1 AJ DATE-ACQ                          N  8.0  N 
+0018G 1 AK MAINTAINANCE 
+0019  2 AL CURR-CODE                         A    3  N 
+0020M 2 AM MAINT-COST                        P  7.0  N 
+0021  1 AO MODEL-YEAR-MAKE                   A   24  N S 
+0022*      -------- SOURCE FIELD(S) ------- 
+0023*      AG-1(1-4) 
+0024*      AD-1(1-20) 
+0025******DDM OUTPUT TERMINATED****** 

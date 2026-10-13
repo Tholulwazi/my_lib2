@@ -1,0 +1,78 @@
+0001/** New Program NATTEST4.
+0002/**
+0003/** :author tzu
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL
+00061 #NAMES (A200)
+00071 #EMAILS (A200)
+00081 #NUMBERS (A4)
+00091 #SENTENCES (A200)
+00101 #SINGLE-NAME (A1)
+0011****************************************************************************
+0012/*TOTALS
+00131 #TOTAL-EMAILS (N10) 
+00141 #TOTAL-NUMERICS (N10) 
+00151 #TOTAL-SINGLE-WORDS (N10) 
+00161 #TOTAL-RECORDS-READ (N10) 
+0017****************************************************************************
+0018/**INDEX
+00191 #INDEX-SENT (N1)
+00201 #INDEX-EMAIL (N1)
+00211 #INDEX-SINGL (N1)
+00221 #INDEX-NUMBERS (N1)
+0023****************************************************************************
+0024/**Edited Totals
+00251 #TOTAL-EMAILS2 (N10) 
+00261 #TOTAL-NUMERICS2 (N10) 
+00271 #TOTAL-SINGLE-WORDS2 (N10) 
+00281 #TOTAL-SENTENCE (N10) 
+00291 #TOTAL-SENTENCE2 (N10) 
+00301 #TOTAL-RECORDS-READ2 (N10)
+0031END-DEFINE
+0032/**DECLARING WORKFILES
+0033DEFINE WORK FILE 1 'C:\Trainings\test-data.txt'
+0034DEFINE WORK FILE 2 'C:\Trainings\Numeric Values test-data.txt'
+0035DEFINE WORK FILE 3 'C:\Trainings\Sentences of test-data.txt'
+0036DEFINE WORK FILE 4 'C:\Trainings\Single words of test-data.txt'
+0037DEFINE WORK FILE 5 'C:\Trainings\Emails of test-data.txt'
+0038DEFINE WORK FILE 6 'C:\Trainings\Totals of the 4 files test-data.txt'
+0039****************************************************************************
+0040/*reading work file 1
+0041* REPEAT
+0042READ WORK FILE 1 #NAMES
+0043  ADD 1 TO #TOTAL-RECORDS-READ
+0044
+0045  EXAMINE #NAMES FOR '@' GIVING POSITION #TOTAL-EMAILS2
+0046  IF  #TOTAL-EMAILS2 > 0
+0047    WRITE WORK FILE 5 #NAMES
+0048    ADD 1 TO #TOTAL-EMAILS
+0049    ESCAPE TOP
+0050  END-IF
+0051  IF SUBSTRING(#NAMES,1,1) = '0' THRU '9'
+0052    WRITE WORK FILE 2 #NAMES
+0053    ADD 1 TO #TOTAL-NUMERICS
+0054    ESCAPE TOP
+0055  END-IF
+0056
+0057  EXAMINE #NAMES FOR ' ' GIVING POSITION #TOTAL-SENTENCE
+0058  IF #TOTAL-SENTENCE  GT 0
+0059    ADD 1 TO #TOTAL-SENTENCE2
+0060    WRITE WORK FILE 3 #NAMES
+0061    ESCAPE TOP
+0062  END-IF
+0063  WRITE  WORK FILE 4 #NAMES
+0064  ADD 1 TO #TOTAL-SINGLE-WORDS
+0065END-WORK
+0066
+0067WRITE '*' 'Number of records contained in the work file :'#TOTAL-RECORDS-READ
+0068WRITE '*' 'Number of records containing emails the work file :'#TOTAL-EMAILS
+0069WRITE '*' 'Number of records containing Numerics the work file :'#TOTAL-NUMERICS
+0070WRITE '*' 'Number of records containing Sentences the work file :'#TOTAL-SENTENCE2
+0071WRITE '*' 'Number of records containing single words the work file :'#TOTAL-SINGLE-WORDS
+0072
+0073WRITE WORK FILE 6 VARIABLE 'Total Emails'#TOTAL-EMAILS
+0074WRITE WORK FILE 6 VARIABLE 'Total Numerics' #TOTAL-NUMERICS
+0075WRITE WORK FILE 6 VARIABLE 'Total Sentences' #TOTAL-SENTENCE2
+0076WRITE WORK FILE 6 VARIABLE 'Total Single word' #TOTAL-SINGLE-WORDS
+0077WRITE WORK FILE 6 VARIABLE ' Total files read in the record' #TOTAL-RECORDS-READ
+0078END
